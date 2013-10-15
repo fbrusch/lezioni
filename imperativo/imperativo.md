@@ -1,4 +1,3 @@
-
 Riprendiamo dall'algoritmo di Euclide per il calcolo del MCD tra due numeri.
 Proviamo ad esprimerlo ricorsivamente.
 
@@ -304,6 +303,7 @@ Diventa:
 ```
 
 Esercizi:
+
 1. scrivere una funzione che, dato n, somma tutti i numeri _pari_ tra 1 e n;
 2. scrivere una funzione che verifica se un numero `n` è primo, calcolando il
 minor numero possibile di operazioni di modulo `%`.
