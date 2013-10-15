@@ -1,12 +1,11 @@
 
-
 Riprendiamo dall'algoritmo di Euclide per il calcolo del MCD tra due numeri.
 Proviamo ad esprimerlo ricorsivamente.
 
 Inizialmente possiamo esprimere la soluzione in questo modo, mischiando
 linguaggio C e linguaggio naturale, nel modo che ci è più comodo per "chiarirci
 le idee": 
-
+```C
     int MCD(int a, int b)
     {
         if (a==b) 
@@ -14,6 +13,7 @@ le idee":
         else
             return il massimo tra a e b meno il minimo tra a e b
     }
+```
 
 Ovviamente questa funzione non è definita in modo sintatticamente corretto.
 Il misto di linguaggio formale e informale che si usa durante la risoluzione di
@@ -29,7 +29,7 @@ una nuova amica, che unisce il mondo delle _espressioni intere_ con quello delle
 _espressioni booleane_.
 
 #### Prima soluzione: il sentiero dei nidi di `if`
-
+```C
     int MCD(int a, int b)
     {
         if (a==b)
@@ -40,9 +40,10 @@ _espressioni booleane_.
             else
                 return MCD(b-a,a);
     }
+```
 
 #### Seconda soluzione: neologismi FTW
-
+```C
     int max(int a, int b)
     {
         if (a>b) return a;
@@ -62,19 +63,21 @@ _espressioni booleane_.
         else
             return MCD(max(a,b)-min(a,b),min(a,b));    
     }
-
+```
 #### Terza soluzione: esprimiamoci, facendoci condizionare
-
+```C
     int max(int a, int b)
     {
         if (a==b)
             return a;
         else
             return a>b ? MCD(a-b,b) : MCD(b-a,a)
-
+```
 In questa terza soluzione troviamo una forma nuova:
-    
+
+```C 
     x ? y : z
+```
 
 Questa forma si chiama _espressione condizionale_, e funziona così:
 `x` è un'espressione booleana, che dunque può essere vera o falsa.
@@ -116,23 +119,22 @@ Se eseguissimo l'algoritmo di sopra, un passo al minuto (ce la prendiamo
 comoda), ecco come _evolverebbe_ il contenuto del nostro foglio:
 
 
-
-Minuto | Passo | Prossimo 	Passo | `a`  | `b`
--------|-------|:---------------:|-------------
-1      | 1     |  	2		      |  69  |  92
-2      | 2     |  	3		   	  |  69  |  92
-3      | 3     |  	4			  |  69  |  23
-4      | 4     |  	2			  |  69  |  23
-5      | 2     |  	3			  |  69  |  23
-6      | 3     |  	4			  |  69  |  46
-7      | 4     |  	2			  |  69  |  46
-8      | 2     |  	3			  |  69  |  46
-9      | 3     |  	4			  |  23  |  46
-10     | 4     |  	2			  |  23  |  46
-11     | 2     |  	3			  |  23  |  46
-12     | 3     |  	4			  |  23  |  23
-13     | 4     |  	2			  |  23  |  23
-14     | 2     |  				  |  23  |  23
+ Minuto | Passo | Prossimo Passo | `a`  | `b`
+ -------|-------|:---------------|------|------
+ 1      | 1     |  	2        |  69  |  92
+ 2      | 2     |  	3	 |  69  |  92
+ 3      | 3     |  	4	 |  69  |  23
+ 4      | 4     |  	2	 |  69  |  23
+ 5      | 2     |  	3	 |  69  |  23
+ 6      | 3     |  	4	 |  69  |  46
+ 7      | 4     |  	2	 |  69  |  46
+ 8      | 2     |  	3	 |  69  |  46
+ 9      | 3     |  	4	 |  23  |  46
+ 10     | 4     |  	2	 |  23  |  46
+ 11     | 2     |  	3	 |  23  |  46
+ 12     | 3     |  	4	 |  23  |  23
+ 13     | 4     |  	2	 |  23  |  23
+ 14     | 2     |  		 |  23  |  23
 
 
 FINITO!
@@ -149,7 +151,7 @@ Ebbene, il C non ci lascia soli, e ci offre alcuni strumenti con cui possiamo
 esprimere questo tipo di comportamento.
 
 Partiamo subito dal codice:
-
+```C
 	int MCD(int a, int b)
 	{
 	   loop: if (a==b) 
@@ -161,7 +163,7 @@ Partiamo subito dal codice:
 	   goto loop;
 	
 	}
-
+```
 Facciamo la conoscenza di due nuovi elementi:
 
 1. l'assegnamento `=`
@@ -181,7 +183,7 @@ Esercizi successivi:
 
 `goto` è un potente costrutto di controllo del _flusso di esecuzione_, ma nella programmazione moderna è praticamente inutilizzato. Perché? Il dio della computer science Edsger W. Dijkstra arriva addirittura a sostenere una correlazione inversa tra la qualità di un programmatore e il numero di istruzioni `goto` che dissemina nei programmi.
 Prendiamo ad esempio la seguente funzione, che somma i numeri da 1 a `n`:
-
+```C
 	int somma(int n)
 	{
 		int i,s;
@@ -193,7 +195,7 @@ Prendiamo ad esempio la seguente funzione, che somma i numeri da 1 a `n`:
 		goto loop;
 		exit: return s;
 	}
-
+```
 Che cosa fa il codice sopra?
 
 1. `int i` dichiara la variabile `i`
@@ -207,7 +209,7 @@ Che cosa fa il codice sopra?
 Proviamo a vedere come varia il valore delle variabili durante la valutazione della funzione con parametro `3`:
 
 | Minuto | Passo | i  |  s |
-----------------------------
+|--------|-------|----|----|
 |  1 | 1 |  0 |  0 |
 |  2 | 2 |  1 |  0 |
 |  3 | 3 |  1 |  0 |
@@ -233,6 +235,7 @@ viene eseguita la nostra funzione.
 
 Consideriamo ora la seguente funzione, che testa la primalità di un numero:
 
+```C
 	int isprimo(int n)
 	{
 		int i;
@@ -243,6 +246,7 @@ Consideriamo ora la seguente funzione, che testa la primalità di un numero:
 		goto loop;
 		exit: return 1;
 	}
+```
 
 Anche qui, dopo un'attenta e faticosa analisi, potremmo descrivere il codice
 con la seguente sequenza di _imperativi_:
@@ -260,6 +264,7 @@ in maniera sintetica l'imperativo _conta!_.
 Il costrutto in questione si chiama `for`, e lo vediamo subito in azione nelle
 due funzioni `somma` e `isprimo`:
 
+```C
     int somma(int n)
     {
         int i,s;
@@ -278,21 +283,25 @@ due funzioni `somma` e `isprimo`:
 			if (n%i==0) return 0;
 		return 1;
 	}
-	
+```
+
 C'è una regola che _traduce_ un ciclo for in una serie di etichette e di
 istruzioni di salto. La regola possiamo descriverla così:
-
+```C
 	for (a;b;c) 
 		d;
+```
 
 Diventa:
 
+```C
 	a;
 	loop: if (!b) goto exit;
 	d;
 	c;
 	goto loop;
 	exit:
+```
 
 Esercizi:
 1. scrivere una funzione che, dato n, somma tutti i numeri _pari_ tra 1 e n;
