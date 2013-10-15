@@ -1,0 +1,27 @@
+Cose da consolidare:
+
+- Espressioni logiche
+
+    operatori logici: <, >, <=, >=, !=, ==, &&, ||
+
+- Com'è descritta la definizione di una funzione?
+    * Serie di _istruzioni_
+    * Tempo diviso in passi successivi
+    * C'è una prima istruzione
+    * L'istruzione viene eseguita
+    * Istruzione successiva: di default è la seguente
+    * Nel caso di istruzioni che controllano il flusso (istruzioni condizionali, loop), può non essere la stessa
+    * L'insieme di istruzioni che definisce una funzione: il *codice* della funzione
+    * Istruzioni viste finora: return
+
+Esercizi: 
+    * scrivere una funzione che: 
+        - prenda in ingresso due numeri e ritorni il maggiore
+        - prenda in ingresso due numeri che delimitano un intervallo e dica se
+          un terzo numero è compreso nell'intervallo
+        - prenda in ingresso tre numeri e dica se uno di questi è la somma degli
+          altri due
+        - prenda in ingresso tre numeri e dica se uno è la media degli altri due
+       
+    
+
