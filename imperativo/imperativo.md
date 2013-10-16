@@ -200,7 +200,7 @@ Che cosa fa il codice sopra?
 1. `int i` dichiara la variabile `i`
 2. `i=2` assegna ad `i` il valore inizale 2 (azione alla quale tecnicamente ci si riferisce con _inizializzare_)
 3. `s=0` assegna a s il valore iniziale 0
-4. `loop: if (!(i<=n)) goto exit` controlla che sia soddisfatta la condizione `i<n`. In caso contrario, salta all'etichetta `exit`
+4. `loop: if (!(i<n)) goto exit` controlla che sia soddisfatta la condizione `i<n`. In caso contrario, salta all'etichetta `exit`
 5. `s=s+i` _incrementa_ il valore di `s` del valore di `i` (a volte ci si riferisce alla cosa dicendo che si _accumula_ i in s)
 6. `i=i+1` incrementa `i` di 1
 7. _salta_ a `loop`
@@ -268,9 +268,9 @@ due funzioni `somma` e `isprimo`:
     {
         int i,s;
         s=0;
-        for(i=1;i<=n;i++)
+        for(i=1;i<=n;i++) //La scrittura 'i++' è equivalente a 'i = i + 1'
         {
-            s=s+1;
+            s=s+i;
         }
         return s;
     }
