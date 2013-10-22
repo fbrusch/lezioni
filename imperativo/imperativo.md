@@ -329,3 +329,23 @@ int numeroprimo(int n)
 	return 1;
 }
  
+##Soluzioni esercizi:
+1.
+int sommapari(int n)
+{	
+	int i, int s;
+	for (i=2;i<=n;i=i+2)
+		{ s=s+i};
+	return s;
+}
+
+2.
+int numeroprimo(int n)
+{
+	for (i=2;i<n;i++)
+		{
+			if (n%i==0)
+				return 0;
+		}
+	return 1;
+}
