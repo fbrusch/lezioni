@@ -307,4 +307,25 @@ Esercizi:
 1. scrivere una funzione che, dato n, somma tutti i numeri _pari_ tra 1 e n;
 2. scrivere una funzione che verifica se un numero `n` è primo, calcolando il
 minor numero possibile di operazioni di modulo `%`.
+
+##Soluzioni esercizi:
+1.
+int sommapari(int n)
+{	
+	int i, int s;
+	for (i=2;i<=n;i=i+2)
+		{ s=s+i};
+	return s;
+}
+
+2.
+int numeroprimo(int n)
+{
+	for (i=2;i<n;i++)
+		{
+			if (n%i==0)
+				return 0;
+		}
+	return 1;
+}
  
