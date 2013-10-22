@@ -198,7 +198,7 @@ Prendiamo ad esempio la seguente funzione, che somma i numeri da 1 a `n`:
 Che cosa fa il codice sopra?
 
 1. `int i` dichiara la variabile `i`
-2. `i=2` assegna ad `i` il valore inizale 2 (azione alla quale tecnicamente ci si riferisce con _inizializzare_)
+2. `i=1` assegna ad `i` il valore iniziale 1 (azione alla quale tecnicamente ci si riferisce con _inizializzare_)
 3. `s=0` assegna a s il valore iniziale 0
 4. `loop: if (!(i<n)) goto exit` controlla che sia soddisfatta la condizione `i<n`. In caso contrario, salta all'etichetta `exit`
 5. `s=s+i` _incrementa_ il valore di `s` del valore di `i` (a volte ci si riferisce alla cosa dicendo che si _accumula_ i in s)
