@@ -81,7 +81,7 @@ In questa terza soluzione troviamo una forma nuova:
 
 Questa forma si chiama _espressione condizionale_, e funziona così:
 `x` è un'espressione booleana, che dunque può essere vera o falsa.
-Per valutare l'espressione globale (cioè capire il valore da ritornare), prima viene valutata `x`: se `x` è
+Per valutare l'espressione globale (cioè nell'esempio precedente capire il valore da ritornare), prima viene valutata `x`: se `x` è
 vera, allora il valore dell'espressione è quello di `y`, altrimenti è quello 
 di `z`.
 
