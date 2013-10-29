@@ -1,13 +1,15 @@
 # Aggiungiamo Dimensioni
 
-Esempio: dobbiamo rappresentare il campo di gioco del tris (war games?). 
+Esempio: dobbiamo rappresentare il campo di gioco del tris
+(per avere un'idea del perché potrebbe servire. http://www.youtube.com/watch?v=F7qOV8xonfY). 
 Come facciamo? Usiamo 9 variabili?
-
+```c
 int x00,x01,x02
 int x10,x11,x12
 int x20,x21,x22
+```
 
-Ok, ora vogliamo vedere se c'è una riga di `1` sulla prima riga.
+Ok, ora vogliamo vedere se c'è un tris di `1` sulla prima riga.
 
 Funzione:
 
@@ -102,7 +104,7 @@ potremo riferire esoticamente con:
     x[1][0] = 10;
     x[2][0] = x[1][1]*x[0][1];
     [...]
-```c
+```
  
 Ok, per ora abbiamo risolto il problema della dichiarazione delle variabili che
 ci servono. Notare che possiamo anche passare i nostri array come parametri a
@@ -135,6 +137,7 @@ alla variabile:
     {
       int x[10]={2,3,5,7,11,13,17,19,23,29};
       return x[i-1];
+    }
 ```
 
 [....]
