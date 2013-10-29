@@ -70,7 +70,8 @@ _espressioni booleane_.
         if (a==b)
             return a;
         else
-            return a>b ? MCD(a-b,b) : MCD(b-a,a)
+            return a>b ? MCD(a-b,b) : MCD(b-a,a);
+    }
 ```
 In questa terza soluzione troviamo una forma nuova:
 
@@ -80,7 +81,7 @@ In questa terza soluzione troviamo una forma nuova:
 
 Questa forma si chiama _espressione condizionale_, e funziona così:
 `x` è un'espressione booleana, che dunque può essere vera o falsa.
-Per valutare l'espressione globale, prima viene valutata `x`: se `x` è
+Per valutare l'espressione globale (cioè nell'esempio precedente capire il valore da ritornare), prima viene valutata `x`: se `x` è
 vera, allora il valore dell'espressione è quello di `y`, altrimenti è quello 
 di `z`.
 
@@ -141,6 +142,7 @@ FINITO!
 Questo comportamento è un po' diverso da quello che siamo in grado di far
 eseguire al nostro esecutore C, utilizzando gli strumenti visti fino ad ora.
 In particolare:
+
 1. non abbiamo niente che equivalga al foglio sul quale annotiamo i valori di
 `a` e `b`
 2. non sappiamo come far ritornare l'esecuzione ad un punto particolare (il
@@ -175,7 +177,7 @@ Esercizi successivi:
 
 1. test di primalità
 2. ritornare l'n-simo numero primo
-3. dire se un numero ha un amico
+3. dire se un numero ha un [amico](http://it.wikipedia.org/wiki/Numeri_amici)
 4. ritornare l'n-simo numero amicabile
 
 ### Enough spaghetti: FOR to the rescue
