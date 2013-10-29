@@ -1,0 +1,92 @@
+#include <stdio.h>
+
+int main()
+{
+int x[3][3];
+	x[0][0]=2;
+	x[0][1]=1;
+	x[0][2]=1;
+	x[1][0]=2;
+	x[1][1]=2;
+	x[1][2]=2;
+	x[2][0]=1;
+	x[2][1]=1;
+	x[2][2]=2;
+	printf("lo schema è:\n                              %i  %i  %i\n                              %i  %i  %i\n                              %i  %i  %i\n",x[0][0],x[0][1],x[0][2],x[1][0],x[1][1],x[1][2],x[2][0],x[2][1],x[2][2]);
+
+	return controllo(x);
+}
+
+int controllo(int x[3][3])
+{
+int trisfatti1=controllocolonna(x)/10+controllodiagonali(x)/10+controlloriga(x)/10;
+int trisfatti2=controllocolonna(x)%10+controllodiagonali(x)%10+controlloriga(x)%10;
+
+	if(trisfatti1==1 && trisfatti2==0) printf(" il giocatore 1 ha vinto\n");
+	if(trisfatti1==0 && trisfatti2==1) printf(" il giocatore 2 ha vinto\n"); 
+	if(trisfatti1>1 && trisfatti2==0) printf(" il giocatore 1 ha fatto %i tris\n",trisfatti1);
+	if(trisfatti1==0 && trisfatti2>1) printf(" il giocatore 2 ha fatto %i tris\n",trisfatti2);
+	if(trisfatti1>0 && trisfatti2>0) printf(" il giocatore 1 ha fatto %i tris e il giocatore 2 ne ha fatti %i\n",trisfatti1,trisfatti2);
+	if(trisfatti1==0 && trisfatti2==0) printf(" nessun giocatore ha vinto\n");
+return 0;
+}
+
+int controllocolonna(int x[3][3])
+{
+int tris1=0;
+int tris2=0;
+int a=0;
+int b=0;
+int colonna;
+int riga;
+
+	for(colonna=0;colonna<3;colonna++)
+		{
+		a=0,b=0;
+		for(riga=0;riga<3;riga++)
+			{
+			if(x[riga][colonna]==1) a=a+1;
+			if(x[riga][colonna]==2) b=b+1;
+			}
+		if(a==3) tris1=tris1+1;
+		if(b==3) tris2=tris2+1;
+		}
+return tris1*10+tris2;
+	
+}
+
+int controlloriga(int x[3][3])
+{
+int rtris1=0;
+int rtris2=0;
+int a=0;
+int b=0;
+int colonna;
+int riga;
+
+	for(riga=0;riga<3;riga++)
+		{
+		a=0,b=0;
+		for(colonna=0;colonna<3;colonna++)
+			{
+			if(x[riga][colonna]==1) a=a+1;
+			if(x[riga][colonna]==2) b=b+1;
+			}
+		if(a==3) rtris1=rtris1+1;
+		if(b==3) rtris2=rtris2+1;
+		}
+return rtris1*10+rtris2;
+	
+}
+
+int controllodiagonali(int x[3][3])
+{
+int c=0;
+int d=0;
+
+	if(x[0][0]==1 && x[1][1]==1 && x[2][2]==1) c=c+1;	
+	if(x[0][0]==2 && x[1][1]==2 && x[2][2]==2) d=d+1;
+	if(x[0][2]==1 && x[1][1]==1 && x[2][0]==1) c=c+1;
+	if(x[0][2]==2 && x[1][1]==2 && x[2][0]==2) d=d+1;
+	return c*10+d;
+}
