@@ -16,12 +16,47 @@ Cose da consolidare:
 
 Esercizi: 
     * scrivere una funzione che: 
-        - prenda in ingresso due numeri e ritorni il maggiore
-        - prenda in ingresso due numeri che delimitano un intervallo e dica se
+        1) prenda in ingresso due numeri e ritorni il maggiore
+        2) prenda in ingresso due numeri che delimitano un intervallo e dica se
           un terzo numero è compreso nell'intervallo
-        - prenda in ingresso tre numeri e dica se uno di questi è la somma degli
+        3) prenda in ingresso tre numeri e dica se uno di questi è la somma degli
           altri due
-        - prenda in ingresso tre numeri e dica se uno è la media degli altri due
-       
-    
+        4) prenda in ingresso tre numeri e dica se uno è la media degli altri due
 
+Soluzioni:
+
+1)
+int maggiore(int n1, int n2)
+{
+	if (n1>n2) 
+		return n1
+	else 
+		return n2;
+}
+
+2)
+int compreso(int n1, int n2, int n3)
+{
+	if (n1<n2 && n2<n3) 
+		return 1;
+	else
+		return 0;
+}
+
+3)
+int sesomma(int a1, int a2, int r)
+{
+	if (a1+a2==r) 
+		return 1;
+	else
+		return 0;
+}
+
+4)
+int media(int n1, int n2, int m)
+{
+	if ((n1+n2)/2==m) 
+		return 1;
+	else
+		return 0;
+}
