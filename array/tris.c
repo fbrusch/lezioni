@@ -194,14 +194,14 @@ int analyzeAndSetPriorities(int gameBoard[BOARD_SIZE][BOARD_SIZE], int priorityA
             else{   //La cella 3 e' vuota
                 if(cell1 == cell2){
                     if(isPlayer(cell1,player)){ //Le due celle piene appartengono al giocatore
-                        changePriority(&priorityArray[cell3X][cell3Y], 4, &highestPriority);
+                        changePriority(&priorityArray[cell3X][cell3Y], PRIOR_MAX, &highestPriority);
                     }
                     else{
-                        changePriority(&priorityArray[cell3X][cell3Y], 3, &highestPriority);
+                        changePriority(&priorityArray[cell3X][cell3Y], PRIOR_HIGH, &highestPriority);
                     }
                 }
                 else{ // Le due celle piene sono uguali, mossa inutile.
-                    changePriority(&priorityArray[cell3X][cell3Y], 1, &highestPriority);
+                    changePriority(&priorityArray[cell3X][cell3Y], PRIOR_LOW, &highestPriority);
                 }
             }
         }
@@ -209,24 +209,24 @@ int analyzeAndSetPriorities(int gameBoard[BOARD_SIZE][BOARD_SIZE], int priorityA
             if(isPlayerOrEnemy(cell3,player,enemy)){ //La cella 3 e' piena
                 if(cell1 == cell3){
                     if(isPlayer(cell1,player)){
-                        changePriority(&priorityArray[cell2X][cell2Y], 4, &highestPriority);
+                        changePriority(&priorityArray[cell2X][cell2Y], PRIOR_MAX, &highestPriority);
                     }
                     else{
-                        changePriority(&priorityArray[cell2X][cell2Y], 3, &highestPriority);
+                        changePriority(&priorityArray[cell2X][cell2Y], PRIOR_HIGH, &highestPriority);
                     }
                 }
                 else{ //Le celle piene sono diverse fra loro, mossa inutile
-                    changePriority(&priorityArray[cell2X][cell2Y], 1, &highestPriority);
+                    changePriority(&priorityArray[cell2X][cell2Y], PRIOR_LOW, &highestPriority);
                 }
             }
             else{ //Le celle 2 e 3 aono vuote -- La cella 1 e' piena
                 if(isPlayer(cell1,player)){
-                    changePriority(&priorityArray[cell2X][cell2Y], 2, &highestPriority);
-                    changePriority(&priorityArray[cell3X][cell3Y], 2, &highestPriority);
+                    changePriority(&priorityArray[cell2X][cell2Y], PRIOR_MED, &highestPriority);
+                    changePriority(&priorityArray[cell3X][cell3Y], PRIOR_MED, &highestPriority);
                 }
                 else{
-                    changePriority(&priorityArray[cell2X][cell2Y], 1, &highestPriority);
-                    changePriority(&priorityArray[cell3X][cell3Y], 1, &highestPriority);
+                    changePriority(&priorityArray[cell2X][cell2Y], PRIOR_LOW, &highestPriority);
+                    changePriority(&priorityArray[cell3X][cell3Y], PRIOR_LOW, &highestPriority);
                 }
             }
         }
@@ -236,42 +236,42 @@ int analyzeAndSetPriorities(int gameBoard[BOARD_SIZE][BOARD_SIZE], int priorityA
             if(isPlayerOrEnemy(cell3,player,enemy)){ //La cella 3 e' piena
                 if(cell2 == cell3){
                     if(isPlayer(cell2,player)){
-                        changePriority(&priorityArray[cell1X][cell1Y], 4, &highestPriority);
+                        changePriority(&priorityArray[cell1X][cell1Y], PRIOR_MAX, &highestPriority);
                     }
                     else{
-                        changePriority(&priorityArray[cell1X][cell1Y], 3, &highestPriority);
+                        changePriority(&priorityArray[cell1X][cell1Y], PRIOR_HIGH, &highestPriority);
                     }
                 }
                 else{ //Le celle piene sono diverse, mossa inutile.
-                    changePriority(&priorityArray[cell1X][cell1Y], 1, &highestPriority);
+                    changePriority(&priorityArray[cell1X][cell1Y], PRIOR_LOW, &highestPriority);
                 }
             }
             else{ //Celle 1 e 3 vuote -- Cella 2 piena
                 if(isPlayer(cell2,player)){
-                    changePriority(&priorityArray[cell1X][cell1Y], 2, &highestPriority);
-                    changePriority(&priorityArray[cell3X][cell3Y], 2, &highestPriority);
+                    changePriority(&priorityArray[cell1X][cell1Y], PRIOR_MED, &highestPriority);
+                    changePriority(&priorityArray[cell3X][cell3Y], PRIOR_MED, &highestPriority);
                 }
                 else{
-                    changePriority(&priorityArray[cell1X][cell1Y], 1, &highestPriority);
-                    changePriority(&priorityArray[cell3X][cell3Y], 1, &highestPriority);
+                    changePriority(&priorityArray[cell1X][cell1Y], PRIOR_LOW, &highestPriority);
+                    changePriority(&priorityArray[cell3X][cell3Y], PRIOR_LOW, &highestPriority);
                 }
             }
         }
         else{ //Celle 1 e 2 vuote
             if(isPlayerOrEnemy(cell3,player,enemy)){ //Cella 3 piena
                 if(isPlayer(cell3,player)){
-                    changePriority(&priorityArray[cell2X][cell2Y], 2, &highestPriority);
-                    changePriority(&priorityArray[cell1X][cell1Y], 2, &highestPriority);
+                    changePriority(&priorityArray[cell2X][cell2Y], PRIOR_MED, &highestPriority);
+                    changePriority(&priorityArray[cell1X][cell1Y], PRIOR_MED, &highestPriority);
                 }
                 else{
-                    changePriority(&priorityArray[cell2X][cell2Y], 1, &highestPriority);
-                    changePriority(&priorityArray[cell1X][cell1Y], 1, &highestPriority);
+                    changePriority(&priorityArray[cell2X][cell2Y], PRIOR_LOW, &highestPriority);
+                    changePriority(&priorityArray[cell1X][cell1Y], PRIOR_LOW, &highestPriority);
                 }
             }
             else{ //Tutte le celle sono vuote
-                changePriority(&priorityArray[cell1X][cell1Y], 1, &highestPriority);
-                changePriority(&priorityArray[cell2X][cell2Y], 1, &highestPriority);
-                changePriority(&priorityArray[cell3X][cell3Y], 1, &highestPriority);
+                changePriority(&priorityArray[cell1X][cell1Y], PRIOR_LOW, &highestPriority);
+                changePriority(&priorityArray[cell2X][cell2Y], PRIOR_LOW, &highestPriority);
+                changePriority(&priorityArray[cell3X][cell3Y], PRIOR_LOW, &highestPriority);
             }
         }
     }
@@ -352,10 +352,10 @@ int bestMove(int player, int gameBoard[BOARD_SIZE][BOARD_SIZE], int bestCell[2])
 
     //I cicli controllano tutte le righe e colonne chiamando le funzioni checkRow e checkColumn
 
-    for(i = 0; i < 3; i++){
+    for(i = 0; i < BOARD_SIZE; i++){
         ifLesserReplace(&highestPriority, checkRow(gameBoard, i, player, enemy, mPriority));
 
-        for(j = 0; j < 3; j++){
+        for(j = 0; j < BOARD_SIZE; j++){
             ifLesserReplace(&highestPriority, checkColumn(gameBoard, j, player, enemy, mPriority));
         }
     }
