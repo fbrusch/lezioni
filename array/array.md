@@ -138,10 +138,80 @@ alla variabile:
       int x[10]={2,3,5,7,11,13,17,19,23,29};
       return x[i-1];
     }
+    
 ```
 
-[....]
+Proviamo ora a inizializzare una matrice 3x3:
+
+```c
+#define DIM 1000
+
+int main()
+{
+    int m[DIM][DIM];
+    int i,j;
+    
+    for (i=0;i<=DIM-1;i++)
+    {
+        for (j=0;j<=DIM-1;j++)
+            m[i][j] = 0;
+    }
+    
+}
+```
+
+Scriviamo ora una funzione che controlli se la matrice che le viene passata è unitaria:
+
+```c
+int isunita(int m[DIM][DIM])
+{
+   // ritorniamo 1 se la matrice e' unitaria, 0 altrimenti
+  int i,j;
+  
+  for(i=0;i<DIM;i++)
+  {
+     for(j=0;j<DIM;j++)
+     {
+         if(i==j)
+         {
+            if(m[i][j] != 1) return 0;
+         }
+         else
+            if(m[i][j] != 0) return 0;
+     }
+   }
+   return 1;
+}
+```
+
+Inizializziamo una matrice:
+
+```c
+
+int main()
+{
+    int m[3][3]= {{0,0,1},{0,1,0},{1,1,0}}
+    [...]
+}
+```
+
+
+Scriviamo una funzione che ritorna `1` se c'è una riga di tutti `1` nella matrice:
+
+
+```c
+    int is_there_riga_uni(int m[DIM][DIM])
+    {
+        int i;
+        for(i=0;i<DIM;i++)
+        {
+            se la riga i-sima è di tutti 1, ritorna 1;
+        }
+        return 0;
+    }
+
+
+```
 
 Esercizio: scrivere un programma che inizializza uno schema di tris e 
 controlla che il giocatore `1` abbia fatto tris su una riga.
-    }
