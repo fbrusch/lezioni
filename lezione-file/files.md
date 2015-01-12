@@ -89,6 +89,7 @@ dice che faccia OUTPUT.
 
 Ecco che la nostra rappresentazione di un calcolatore in azione cambia ancora:
 
+```
        +------------------+
        |                  |
        |    MONDO         |
@@ -110,7 +111,7 @@ Ecco che la nostra rappresentazione di un calcolatore in azione cambia ancora:
           |   MEMORIA   |           
           |             |           
           +-------------+           
-
+```
 
 Consideriamo un particolare esempio di I/O: l'interazione con sistemi di
 memorizzazione di massa.
@@ -134,20 +135,21 @@ l'ultima volta che abbiamo usato la nostra applicazione?
 ]
 
 Ok. Via con gli esempi:
-1) scrivere una funzione che crea un file e ci scrive dentro la rappresentazione
+
+1. scrivere una funzione che crea un file e ci scrive dentro la rappresentazione
 del numero intero ricevuto in ingresso (file_scrivi_1)
-2) scrivere una funzione che apre un file, legge il contenuto, lo interpreta
+2. scrivere una funzione che apre un file, legge il contenuto, lo interpreta
 come un numero intero e lo restituisce (file_leggi_1)
-3) scrivere una funzione che crea un file e ci scrive la rappresentazione
+3. scrivere una funzione che crea un file e ci scrive la rappresentazione
 binaria dei numeri da 1 a 10 (file_scrivi_2)
-4) scrivere una funzione che apre un file che contiene 10 numeri, e sostituisce
+4. scrivere una funzione che apre un file che contiene 10 numeri, e sostituisce
 l'xsimo con y (file_sostituisci_1)
-5) scrivere una funzione che apre un file, lo interpreta come una sequenza di
+5. scrivere una funzione che apre un file, lo interpreta come una sequenza di
 numeri interi, e li scrive tutti...
-5.5) scrivere una funzione che apre un file di testo (che contiene caratteri da
+5.5. scrivere una funzione che apre un file di testo (che contiene caratteri da
 un byte) e lo stampa
-6) scrivere una funzione che apre un file di testo e trasforma tutte le lettere
+6. scrivere una funzione che apre un file di testo e trasforma tutte le lettere
 in maiuscole
-7) scrivere una funzione che apre un file di testo e capitalizza solo la prima
+7. scrivere una funzione che apre un file di testo e capitalizza solo la prima
 lettera di ogni parola
 
