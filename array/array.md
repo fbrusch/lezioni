@@ -40,7 +40,8 @@ E se volessimo estendere alle colonne? E alle diagonali? E se volessimo variare
 l'_ordine_ del gioco, passando per esempio a _forza 4_?
 
 Se la soluzione sopra vi piace, se non vi sentite profondamente frustrati nello
-scriverla, lasciate perdere con l'informatica.
+scriverla, lasciate perdere l'informatica.
+
 Fateci caso: la quantità di codice che dobbiamo scrivere per gestire il problema
 _aumenta con le dimensioni dei dati che dobbiamo gestire_. Esiste un'espressione
 tecnica per esprimere questa dipendenza: la soluzione *non "scala"*. Immaginate
@@ -51,6 +52,7 @@ Nel cercare di risolvere i nostri problemi, siamo sempre alle ricerca di soluzio
 che _scalino_, cioè che funzionino per una maggior quantità di dati senza
 richiedere ulteriori interventi.
 Se riusciamo in questa impresa, possiamo fare una cosa notevole:
+
 1. nello studiare il problema, possiamo concentrarci su una versione semplice
 (per esempio, con pochi dati)
 2. una volta che abbiamo risolto il problema semplice con una soluzione
